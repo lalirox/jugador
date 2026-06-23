@@ -85,7 +85,7 @@
         }
     </style>
 
-    <!-- Import Map para React y Three.js (Mantener soporte de tu App) -->
+    <!-- Import Map para React y Three.js -->
     <script type="importmap">
     {
       "imports": {
@@ -99,7 +99,7 @@
     }
     </script>
 
-    <!-- Structured Data (JSON-LD Corregido y Optimizado para Google Search Console) -->
+    <!-- Structured Data (JSON-LD Corregido y Optimizado para Google) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -272,7 +272,7 @@
         </div>
     </nav>
 
-    <!-- Header Principal Corporativo solicitado -->
+    <!-- Header Principal Corporativo -->
     <header id="bienvenida" class="relative py-24 bg-slate-900 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white">
@@ -288,17 +288,16 @@
 
     <main class="max-w-7xl mx-auto px-4 py-12">
 
-        <!-- SECCIÓN DE SALUD MENTAL Y CLÍNICA (Contenedor de tu App de React) -->
+        <!-- SECCIÓN DE SALUD MENTAL Y CLÍNICA (ÚNICO CONTENEDOR DE REACT) -->
         <section id="psicoterapia" class="mb-24 scroll-mt-20">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-extrabold text-slate-900">División de Salud Mental y Crecimiento</h2>
                 <p class="text-slate-600 mt-2 max-w-2xl mx-auto">Un espacio clínico de confianza absoluta coordinado por la psicoterapeuta Marcela Lerma en San Luis Potosí.</p>
             </div>
             
-            <!-- Aquí se monta tu aplicación interactiva de React -->
+            <!-- Aquí se inyecta tu App de React de manera limpia -->
             <div id="root" class="min-h-[400px] bg-white rounded-3xl custom-shadow border border-slate-100 p-6">
-                <!-- Tu index.tsx inyectará aquí los componentes en tiempo real -->
-                <p class="text-center text-slate-400 animate-pulse py-20">Cargando módulos interactivos de consulta clínica y autoconocimiento...</p>
+                <p class="text-center text-slate-400 animate-pulse py-20">Iniciando interfaz clínica de autoconocimiento...</p>
             </div>
         </section>
 
@@ -571,5 +570,8 @@
         const config = { responsive: true, displayModeBar: false };
         Plotly.newPlot('longevityPlot', [trace], layout, config);
     </script>
+
+    <!-- ENTRADA DE REACT UBICADA AL FINAL PARA UNA CARGA CORRECTA DE LA INTERFAZ -->
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
