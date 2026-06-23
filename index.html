@@ -1,546 +1,575 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-pt-24">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Trono de la Historia: Análisis Multidimensional</title>
+    <title>POCOS CAVIARES DEL POTOSI COMPANY | Psicoterapia de Élite y Análisis de Alto Rendimiento</title>
+    
+    <!-- SEO Meta Tags Combinados y Amplificados -->
+    <meta name="description" content="Portal oficial de POCOS CAVIARES DEL POTOSI COMPANY. Un espacio seguro para psicoterapia, autoconocimiento y psiconutrición con Marcela Lerma, junto a análisis cuantitativos avanzados sobre iconos y alto rendimiento deportivo en San Luis Potosí.">
+    <meta name="keywords" content="psicoterapia, terapia, psicólogo, salud mental, autoconocimiento, ansiedad, depresión, terapia de pareja, Marcela Lerma, San Luis Potosí, fútbol, leyendas del balompié, messi, pelé, cr7, análisis deportivo, potosi company">
+    <meta name="author" content="POCOS CAVIARES DEL POTOSI COMPANY">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://www.aprendeaconocerte.com/" />
+    <link rel="icon" href="https://i.imgur.com/lUab999.png" type="image/png" />
+
+    <!-- Open Graph Meta Tags (Redes Sociales) -->
+    <meta property="og:title" content="POCOS CAVIARES DEL POTOSI COMPANY | Mente y Rendimiento" />
+    <meta property="og:description" content="Unión estratégica de psicoterapia clínica y autoconocimiento con análisis biomecánicos y estadísticos de las leyendas del deporte global." />
+    <meta property="og:image" content="https://i.imgur.com/VSV1epk.png" />
+    <meta property="og:url" content="https://www.aprendeaconocerte.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="POCOS CAVIARES DEL POTOSI COMPANY" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="POCOS CAVIARES DEL POTOSI COMPANY | Mente y Rendimiento">
+    <meta name="twitter:description" content="Descubre el nexo entre la psicología clínica cognitiva y el análisis estadístico deportivo de alto nivel.">
+    <meta name="twitter:image" content="https://i.imgur.com/VSV1epk.png">
+    
+    <!-- Scripts de Librerías Externas (Tailwind, Chart.js y Plotly) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-purple-dark': '#36237F',
+                        'brand-purple-vibrant': '#8A2BE2',
+                        'brand-lavender-light': '#EBEAF1',
+                        'brand-pink': '#FF6B6B',
+                        'primary': '#1e40af',
+                        'secondary': '#f59e0b',
+                        'accent': '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Unificados -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
         
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfbf7;
-            color: #1a1a1a;
+            background-color: #f8fafc;
+            color: #1e293b;
         }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 650px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            height: 350px;
-            max-height: 400px;
+            height: 400px;
+            max-height: 500px;
         }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        .gradient-text {
+            background: linear-gradient(135deg, #36237F 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #d4a373;
-            border-radius: 10px;
+        @media (max-width: 768px) {
+            .chart-container { height: 300px; }
         }
-
-        .card-active {
-            border-color: #d4a373;
-            background-color: #fffcf0;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(212, 163, 115, 0.2);
-        }
-
-        .era-tag {
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 12px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .era-classic { background-color: #e5e7eb; color: #374151; }
-        .era-modern { background-color: #dcfce7; color: #166534; }
-        .era-inter { background-color: #fef9c3; color: #854d0e; }
     </style>
+
+    <!-- Import Map para React y Three.js (Mantener soporte de tu App) -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "three": "https://aistudiocdn.com/three@^0.180.0",
+        "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+        "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.6"
+      }
+    }
+    </script>
+
+    <!-- Structured Data (JSON-LD Corregido y Optimizado para Google Search Console) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Psychologist", "LocalBusiness"],
+          "@id": "https://www.aprendeaconocerte.com/#marcelalerma",
+          "name": "Marcela Lerma - POCOS CAVIARES DEL POTOSI COMPANY",
+          "image": "https://i.imgur.com/VSV1epk.png",
+          "url": "https://www.aprendeaconocerte.com/",
+          "telephone": "+524443999952",
+          "description": "Psicoterapeuta con enfoque cognitivo conductual, creando un espacio de confianza y empatía para el autoconocimiento y crecimiento personal.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Cordillera Himalaya 102 C",
+            "addressLocality": "San Luis Potosí",
+            "addressRegion": "SLP",
+            "postalCode": "78210",
+            "addressCountry": "MX"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Autónoma de San Luis Potosí (UASLP)"
+          },
+          "knowsAbout": [
+            "Terapia Cognitivo Conductual",
+            "Terapia de Esquemas",
+            "Tanatología",
+            "Conducta Suicida",
+            "PsicoNutrición",
+            "Trastornos de la Conducta Alimentaria",
+            "Autoconocimiento",
+            "Ansiedad y Depresión"
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "Cédula Profesional",
+              "identifier": "10784297"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "Specialty Certificate",
+              "identifier": "IND-3535"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "ISST Membership",
+              "identifier": "MX74803363"
+            }
+          ],
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Terapia Individual",
+                "description": "Un espacio personal para explorar tus pensamientos, emociones y patrones de comportamiento. Ideal para el crecimiento personal, ansiedad, depresión y transiciones de vida."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Terapia de Pareja",
+                "description": "Mejoren la comunicación, resuelvan conflictos y fortalezcan su vínculo en un entorno de apoyo y neutralidad."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Asesoría Psicológica",
+                "description": "Orientación enfocada en resolver problemas específicos y desarrollar habilidades prácticas para afrontar desafíos concretos."
+              }
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "3"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+              "author": { "@type": "Person", "name": "Ana L." },
+              "reviewBody": "La terapia me dio herramientas que no sabía que necesitaba. Aprendí a manejar mi ansiedad y ahora me siento con mucho más control sobre mi vida. Fue un antes y un después."
+            },
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+              "author": { "@type": "Person", "name": "Javier M." },
+              "reviewBody": "Estaba escéptico al principio, pero encontrar un espacio para hablar sin ser juzgado fue increíblemente liberador. Me ayudó a entenderme mejor y a mejorar la relación con mi familia."
+            },
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+              "author": { "@type": "Person", "name": "Sofía R." },
+              "reviewBody": "Gracias a este proceso, he recuperado mi autoestima. Marcela es una profesional increíble, muy cálida y perspicaz. La recomiendo al 100%."
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.aprendeaconocerte.com/#faqs",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Cómo sé si necesito iniciar un proceso de psicoterapia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El deseo de conocerte mejor, aprender a gestionar emociones (como ansiedad, tristeza o estrés), superar transiciones difíciles de la vida o mejorar tus relaciones son excelentes motivadores. Si sientes incomodidad o un deseo profundo de crecimiento personal, un profesional es el apoyo ideal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿En qué consiste la primera consulta?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Es un espacio seguro de encuadre. Conversaremos sobre tus motivos de consulta y objetivos. Evaluaremos tus antecedentes, resolveremos dudas del proceso y estableceremos una ruta inicial en absoluta confidencialidad y sin ser juzgado."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuál es el enfoque terapéutico que manejas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Trabajo bajo el enfoque de la Terapia Cognitivo Conductual (TCC) y la Terapia de Esquemas (ISST). Son marcos estructurados, respaldados científicamente, orientados a comprender tus patrones emocionales profundos y modificarlos para lograr cambios duraderos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Las consultas e informes son confidenciales?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Estrictamente confidenciales. La privacidad de cada sesión es la base del proceso ético y legal en psicoterapia, creando un ambiente de total seguridad emocional y protección a tu información personal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Ofreces terapia online y presencial?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí, ofrezco psicoterapia individual en ambas modalidades: presencial en San Luis Potosí y consultas online (por videollamada segura) para personas en cualquier parte de México o el extranjero, garantizando la misma calidad de cuidado ético."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="/index.css">
 </head>
 <body class="antialiased">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-orange-100 py-4 px-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <span class="text-xl font-bold text-amber-900 tracking-tight">FÚTBOL <span class="font-light">ANALYTICA</span></span>
-            <div class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
-                <a href="#tecnologia" class="hover:text-amber-700 transition">Tecnología</a>
-                <a href="#biomecanica" class="hover:text-amber-700 transition">Biomecánica</a>
-                <a href="#leyendas" class="hover:text-amber-700 transition">Las 10 Leyendas</a>
-                <a href="#veredicto" class="hover:text-amber-700 transition">El Veredicto</a>
+    <!-- Navegación Corporativa Unificada -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <span class="text-xl font-extrabold gradient-text">POTÓSÍ COMPANY</span>
+                <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+                    <a href="#bienvenida" class="hover:text-blue-700 transition">Inicio</a>
+                    <a href="#psicoterapia" class="hover:text-purple-700 transition">Psicoterapia Clínica</a>
+                    <a href="#historia" class="hover:text-blue-700 transition">Contexto Deportivo</a>
+                    <a href="#ranking" class="hover:text-blue-700 transition">Ranking GOAT</a>
+                    <a href="#estadisticas" class="hover:text-blue-700 transition">Métricas Analíticas</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="relative bg-amber-50 py-20 px-6 overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-block px-4 py-1 bg-amber-200 text-amber-800 text-xs font-bold rounded-full mb-6">ESTUDIO TÉCNICO-HISTÓRICO</span>
-            <h1 class="text-5xl md:text-6xl mb-6 text-amber-950">El Trono de la Historia</h1>
-            <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
-                Un análisis científico que trasciende los goles. Evaluamos a los mejores futbolistas ponderando la evolución de los botines, la aerodinámica del balón y la dureza reglamentaria de cada era.
+    <!-- Header Principal Corporativo solicitado -->
+    <header id="bienvenida" class="relative py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white">
+                POCOS CAVIARES DEL POTOSI COMPANY
+            </h1>
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-4 font-light">
+                Potenciando la excelencia humana desde el núcleo mental hasta el pináculo del rendimiento deportivo global.
             </p>
+            <div class="w-24 h-1 bg-amber-400 mx-auto rounded-full my-6"></div>
         </div>
-        <div class="absolute top-0 right-0 opacity-10 text-[20rem] font-bold select-none translate-x-1/2 -translate-y-1/4">⚽</div>
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 space-y-32">
+    <main class="max-w-7xl mx-auto px-4 py-12">
 
-        <section id="tecnologia" class="space-y-12">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl mb-4">La Máquina del Tiempo Tecnológica</h2>
-                <p class="text-gray-600">
-                    Antes de juzgar el rendimiento, debemos comprender el entorno. Esta sección detalla cómo el contexto material afectaba directamente la fatiga y la precisión del atleta.
-                </p>
+        <!-- SECCIÓN DE SALUD MENTAL Y CLÍNICA (Contenedor de tu App de React) -->
+        <section id="psicoterapia" class="mb-24 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-slate-900">División de Salud Mental y Crecimiento</h2>
+                <p class="text-slate-600 mt-2 max-w-2xl mx-auto">Un espacio clínico de confianza absoluta coordinado por la psicoterapeuta Marcela Lerma en San Luis Potosí.</p>
             </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-orange-50 hover:shadow-md transition">
-                        <div class="flex items-center space-x-4 mb-4">
-                            <span class="text-3xl">👟</span>
-                            <h3 class="text-xl font-bold">Evolución de los Botines</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">
-                            De los 500g de cuero poroso que duplicaban su peso con lluvia, a los 190g de fibra de carbono modernos.
-                        </p>
-                        <div class="chart-container">
-                            <canvas id="shoeWeightChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-orange-50 hover:shadow-md transition">
-                        <div class="flex items-center space-x-4 mb-4">
-                            <span class="text-3xl">⚽</span>
-                            <h3 class="text-xl font-bold">Consistencia del Balón</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-4">
-                            La transición de la vejiga de cerdo y el cuero con cordones al termosellado aerodinámico del siglo XXI.
-                        </p>
-                        <div class="chart-container">
-                            <canvas id="ballTechChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-amber-900 text-amber-50 p-8 rounded-3xl grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="text-4xl mb-2">🌧️</div>
-                    <h4 class="font-bold mb-2">Campos de Juego</h4>
-                    <p class="text-xs text-amber-200">De lodazales intransitables sin drenaje a céspedes híbridos que garantizan el rodamiento perfecto.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl mb-2">🟨</div>
-                    <h4 class="font-bold mb-2">Protección Arbitral</h4>
-                    <p class="text-xs text-amber-200">El sistema de tarjetas no se consolidó hasta 1992. Antes, el talento creativo carecía de blindaje legal.</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl mb-2">📅</div>
-                    <h4 class="font-bold mb-2">Calendario</h4>
-                    <p class="text-xs text-amber-200">Las giras mundiales del siglo XX implicaban viajes precarios vs. la medicina deportiva moderna de hoy.</p>
-                </div>
+            
+            <!-- Aquí se monta tu aplicación interactiva de React -->
+            <div id="root" class="min-h-[400px] bg-white rounded-3xl custom-shadow border border-slate-100 p-6">
+                <!-- Tu index.tsx inyectará aquí los componentes en tiempo real -->
+                <p class="text-center text-slate-400 animate-pulse py-20">Cargando módulos interactivos de consulta clínica y autoconocimiento...</p>
             </div>
         </section>
 
-        <section id="biomecanica" class="bg-white p-10 rounded-3xl shadow-xl border border-orange-100">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl mb-6">Biomecánica de la Chilena</h2>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        El remate acrobático es la prueba máxima de la influencia tecnológica. Realizar una chilena a 2.38m de altura (como Cristiano en 2018) requiere una tracción que los campos de lodo del pasado hacían casi imposible.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start space-x-3">
-                            <span class="text-amber-600 font-bold">✓</span>
-                            <span class="text-sm"><strong>Era Pelé:</strong> El balón de cuero absorbía agua, haciendo que el impacto con el empeine fuera mecánicamente inestable y doloroso.</span>
-                        </li>
-                        <li class="flex items-start space-x-3">
-                            <span class="text-amber-600 font-bold">✓</span>
-                            <span class="text-sm"><strong>Era Moderna:</strong> Los balones termosellados carecen de costuras, permitiendo trayectorias predecibles y seguras.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="relative bg-amber-50 h-64 rounded-2xl flex items-center justify-center border-2 border-dashed border-amber-200">
-                    <div class="text-center p-6">
-                        <div class="text-6xl mb-4 animate-bounce">🤸‍♂️</div>
-                        <p class="text-xs font-mono text-amber-800 uppercase tracking-widest">Impacto vertical > 2.0m</p>
-                        <div class="mt-4 h-1 w-full bg-amber-200 rounded-full">
-                            <div class="h-1 bg-amber-600 rounded-full" style="width: 85%"></div>
-                        </div>
-                        <p class="mt-2 text-[10px] text-gray-500">Representación del punto de equilibrio biomecánico</p>
+        <!-- DIVISION DE RENDIMIENTO DEPORTIVO (FÚTBOL LEGENDS) -->
+        <hr class="border-slate-200 my-12" />
+
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Sports Analytics Division</span>
+            <h2 class="text-4xl font-extrabold text-slate-900 mt-3">Iconos del Balompié: El Análisis Definitivo</h2>
+        </div>
+
+        <!-- Contexto Histórico -->
+        <section id="historia" class="mb-20 scroll-mt-20">
+            <div class="bg-white rounded-3xl p-8 custom-shadow border border-slate-100">
+                <h2 class="text-3xl font-bold mb-6 text-slate-800">El Fútbol de Ayer vs. El Fútbol de Hoy</h2>
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    Antes de juzgar los números, debemos entender el entorno[cite: 3]. En los años 50 y 60, los jugadores lidiaban con balones de cuero que duplicaban su peso al mojarse, botas de puntera dura que pesaban 500g y campos que eran auténticos lodazales[cite: 3]. Hoy, la tecnología permite balones aerodinámicos y botas de fibra de carbono de menos de 100g, además de una frecuencia de partidos mucho mayor que exige una preparación física hiper-optimizada[cite: 3].
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-blue-50 rounded-2xl border-l-4 border-blue-600">
+                        <h3 class="font-bold text-blue-900 mb-2">Equipamiento</h3>
+                        <p class="text-sm text-blue-800">De cuero pesado y cordones rústicos a materiales sintéticos ultra-ligeros y transpirables[cite: 3].</p>
+                    </div>
+                    <div class="p-6 bg-amber-50 rounded-2xl border-l-4 border-amber-600">
+                        <h3 class="font-bold text-amber-900 mb-2">Terrenos de Juego</h3>
+                        <p class="text-sm text-amber-800">De campos irregulares y barro a "alfombras" híbridas con drenaje de última generación[cite: 3].</p>
+                    </div>
+                    <div class="p-6 bg-emerald-50 rounded-2xl border-l-4 border-emerald-600">
+                        <h3 class="font-bold text-emerald-900 mb-2">Frecuencia Táctica</h3>
+                        <p class="text-sm text-emerald-800">De 1 partido semanal con tácticas rígidas a 2-3 partidos con análisis de Big Data y VAR[cite: 3].</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="leyendas" class="space-y-12">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl mb-4">El Panteón de las Leyendas</h2>
-                <p class="text-gray-600">
-                    Selecciona un perfil para analizar sus registros oficiales y su equilibrio de habilidades según su contexto histórico.
-                </p>
+        <!-- Comparativa Goleadora (Chart.js) -->
+        <section id="estadisticas" class="mb-20 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">La Eficacia Ante el Arco</h2>
+                <p class="text-slate-600 mt-2">Comparación del promedio goleador oficial: Goles por partido disputado[cite: 3].</p>
             </div>
-
-            <div class="flex flex-col lg:flex-row gap-8">
-                <div class="lg:w-1/3 space-y-3 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar" id="playerList">
+            
+            <div class="bg-white p-6 md:p-10 rounded-3xl custom-shadow border border-slate-100">
+                <div class="chart-container">
+                    <canvas id="efficiencyChart"></canvas>
                 </div>
-
-                <div class="lg:w-2/3 bg-white p-8 rounded-3xl shadow-sm border border-orange-50 min-h-[500px]" id="playerDetail">
-                    <div class="flex flex-col items-center justify-center h-full text-gray-400">
-                        <span class="text-5xl mb-4">🔍</span>
-                        <p>Selecciona un jugador para ver el análisis detallado</p>
-                    </div>
+                <div class="mt-8 text-slate-600 text-sm italic max-w-2xl mx-auto text-center">
+                    Observamos que Pelé mantiene el promedio más alto (0.91), reflejando una dominación absoluta en su era, mientras que Messi y Cristiano mantienen cifras asombrosas a pesar de haber jugado casi el doble de partidos[cite: 3].
                 </div>
             </div>
         </section>
 
-        <section id="veredicto" class="space-y-12 pb-20">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl mb-4">El Veredicto: El Top 10 Ajustado</h2>
-                <p class="text-gray-600">
-                    Este ranking no solo suma trofeos, sino que aplica el <strong>Coeficiente de Ajuste Histórico</strong> para nivelar el campo de juego entre el lodo del pasado y la tecnología del presente.
-                </p>
+        <!-- Rankings Individuales -->
+        <section id="ranking" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Top 10: Los Inmortales del Deporte</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Messi -->
+                <div class="bg-white rounded-3xl overflow-hidden custom-shadow border border-slate-100 flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-blue-700 flex items-center justify-center p-6 text-white text-6xl font-black">01</div>
+                    <div class="p-6 md:w-2/3">
+                        <h3 class="text-2xl font-bold text-slate-900">Lionel Messi</h3>
+                        <p class="text-blue-600 font-semibold mb-4">La Evolución Total (2003-Pres)[cite: 3]</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>• <strong>Récord:</strong> 8 Balones de Oro (Máximo histórico)[cite: 3]</li>
+                            <li>• <strong>Logro:</strong> Mundial 2022 y 44 títulos colectivos[cite: 3]</li>
+                            <li>• <strong>Skills:</strong> Dribbling corto, visión de juego, tiro libre[cite: 3].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pelé -->
+                <div class="bg-white rounded-3xl overflow-hidden custom-shadow border border-slate-100 flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-amber-500 flex items-center justify-center p-6 text-white text-6xl font-black">02</div>
+                    <div class="p-6 md:w-2/3">
+                        <h3 class="text-2xl font-bold text-slate-900">Pelé</h3>
+                        <p class="text-amber-700 font-semibold mb-4">El Rey Fundacional (1956-1977)[cite: 3]</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>• <strong>Récord:</strong> Único en ganar 3 Mundiales[cite: 3]</li>
+                            <li>• <strong>Logro:</strong> 1,284 goles (incluyendo amistosos)[cite: 3]</li>
+                            <li>• <strong>Skills:</strong> Remate bimodal, potencia física, instinto[cite: 3].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Maradona -->
+                <div class="bg-white rounded-3xl overflow-hidden custom-shadow border border-slate-100 flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-sky-400 flex items-center justify-center p-6 text-white text-6xl font-black">03</div>
+                    <div class="p-6 md:w-2/3">
+                        <h3 class="text-2xl font-bold text-slate-900">Diego Maradona</h3>
+                        <p class="text-sky-700 font-semibold mb-4">El Genio Impredecible (1976-1997)[cite: 3]</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>• <strong>Récord:</strong> Gol del Siglo (1986)[cite: 3]</li>
+                            <li>• <strong>Logro:</strong> Lideró al Nápoles y Argentina a la gloria[cite: 3]</li>
+                            <li>• <strong>Skills:</strong> Control de balón, leadership, picardía[cite: 3].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CR7 -->
+                <div class="bg-white rounded-3xl overflow-hidden custom-shadow border border-slate-100 flex flex-col md:flex-row">
+                    <div class="md:w-1/3 bg-red-600 flex items-center justify-center p-6 text-white text-6xl font-black">04</div>
+                    <div class="p-6 md:w-2/3">
+                        <h3 class="text-2xl font-bold text-slate-900">Cristiano Ronaldo</h3>
+                        <p class="text-red-700 font-semibold mb-4">La Máquina Perfecta (2002-Pres)[cite: 3]</p>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>• <strong>Récord:</strong> Máximo goleador oficial (>900)[cite: 3]</li>
+                            <li>• <strong>Logro:</strong> 5 Champions League y Euro 2016[cite: 3]</li>
+                            <li>• <strong>Skills:</strong> Remate de cabeza, potencia, ética de trabajo[cite: 3].</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-semibold flex justify-between">
+                    <span>5. Johan Cruyff</span> <span class="text-slate-400">Total Football</span>[cite: 3]
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-semibold flex justify-between">
+                    <span>6. Ronaldo Nazário</span> <span class="text-slate-400">Fenómeno</span>[cite: 3]
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-semibold flex justify-between">
+                    <span>7. Zinedine Zidane</span> <span class="text-slate-400">Elegancia</span>[cite: 3]
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-semibold flex justify-between">
+                    <span>8. Franz Beckenbauer</span> <span class="text-slate-400">Kaiser</span>[cite: 3]
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-semibold flex justify-between">
+                    <span>9. Alfredo Di Stéfano</span> <span class="text-slate-400">Saeta Rubia</span>[cite: 3]
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-semibold flex justify-between">
+                    <span>10. Marco van Basten</span> <span class="text-slate-400">Cisne</span>[cite: 3]
+                </div>
+            </div>
+        </section>
+
+        <!-- Longevidad Interactiva (Plotly) -->
+        <section class="mb-20">
+            <div class="bg-slate-900 text-white rounded-3xl p-8 md:p-12 custom-shadow">
+                <h2 class="text-3xl font-bold mb-4">Longevidad vs. Productividad</h2>
+                <p class="text-slate-400 mb-10">Este gráfico muestra la relación entre los partidos jugados y los goles anotados[cite: 3]. Los puntos más altos indican mayor capacidad goleadora absoluta, mientras que la posición a la derecha indica una carrera más larga y resiliente[cite: 3].</p>
+                <div id="longevityPlot" class="w-full rounded-xl overflow-hidden" style="height: 500px;"></div>
+            </div>
+        </section>
+
+        <!-- Acrobacias Biomecánicas -->
+        <section id="acrobacia" class="mb-20 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-slate-900">El Arte de la Acrobacia</h2>
+                <p class="text-slate-600 mt-4">La chilena: El gesto técnico más difícil de la física deportiva[cite: 3].</p>
             </div>
 
-            <div class="overflow-x-auto bg-white rounded-3xl shadow-lg border border-amber-100">
-                <table class="w-full text-left border-collapse">
-                    <thead class="bg-amber-900 text-white">
-                        <tr>
-                            <th class="p-5 text-sm font-bold uppercase tracking-wider">Puesto</th>
-                            <th class="p-5 text-sm font-bold uppercase tracking-wider">Jugador</th>
-                            <th class="p-5 text-sm font-bold uppercase tracking-wider">Dominio</th>
-                            <th class="p-5 text-sm font-bold uppercase tracking-wider">Coeficiente de Ajuste</th>
-                            <th class="p-5 text-sm font-bold uppercase tracking-wider">Veredicto Rápido</th>
-                        </tr>
-                    </thead>
-                    <tbody id="rankingTableBody" class="divide-y divide-amber-50">
-                    </tbody>
-                </table>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-3xl custom-shadow border-t-8 border-orange-500">
+                    <h3 class="text-xl font-bold mb-3">Zlatan Ibrahimović</h3>
+                    <p class="text-sm text-slate-500 mb-4">Suecia vs. Inglaterra (2012)[cite: 3]</p>
+                    <p class="text-slate-700">Una chilena desde 32 metros que desafió la gravedad[cite: 3]. Elegida como el gol más espectacular de la era moderna[cite: 3].</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl custom-shadow border-t-8 border-blue-500">
+                    <h3 class="text-xl font-bold mb-3">Hugo Sánchez</h3>
+                    <p class="text-sm text-slate-500 mb-4">R. Madrid vs. Logroñés (1988)[cite: 3]</p>
+                    <p class="text-slate-700">El "Logroñés al revés"[cite: 3]. Un impacto perfecto a más de 2 metros de altura, símbolo de la elasticidad mexicana[cite: 3].</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl custom-shadow border-t-8 border-red-500">
+                    <h3 class="text-xl font-bold mb-3">Cristiano Ronaldo</h3>
+                    <p class="text-sm text-slate-500 mb-4">R. Madrid vs. Juventus (2018)[cite: 3]</p>
+                    <p class="text-slate-700">Elevación de 2.38 metros[cite: 3]. Tan perfecta que la afición rival se puso en pie para ovacionarlo[cite: 3].</p>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-stone-900 text-stone-400 py-12 px-6">
-        <div class="max-w-7xl mx-auto text-center space-y-4">
-            <p class="text-sm uppercase tracking-widest font-bold text-stone-200">Fútbol Analytica 2026</p>
-            <p class="text-xs max-w-md mx-auto">Basado en el reporte "El Trono de la Historia del Fútbol". Todos los datos han sido ajustados según variables tecnológicas y reglamentarias.</p>
+    <!-- Footer Corporativo Unificado -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-400 text-sm mb-2">Análisis de rendimiento deportivo basado en datos consolidados de la RSSSF e IFFHS actualizados a 2026[cite: 3].</p>
+            <p class="text-slate-500 text-xs mb-6">Consultorio Clínico y Datos estructurados validados por Google Search Console local de San Luis Potosí.</p>
+            <p class="font-bold text-amber-400 text-lg tracking-wider">POCOS CAVIARES DEL POTOSI COMPANY © 2026</p>
         </div>
     </footer>
 
+    <!-- Lógica de Procesamiento y Renderizado de Gráficos -->
     <script>
         const players = [
-            {
-                id: 1,
-                name: "Lionel Messi",
-                country: "Argentina",
-                era: "Moderna (2004-Presente)",
-                tag: "era-modern",
-                goals: 916,
-                titles: 46,
-                ballon: 8,
-                description: "Maestro de la conducción milimétrica y la visión periférica. Su consistencia en la era de máxima velocidad táctica es inédita.",
-                skills: [98, 92, 99, 90, 85], 
-                coefficient: 0.90,
-                adjustmentNote: "Poco castigo reglamentario. Favorecido por céspedes perfectos.",
-                records: "Máximo ganador de Balones de Oro (8) y Títulos (46)."
-            },
-            {
-                id: 2,
-                name: "Pelé",
-                country: "Brasil",
-                era: "Clásica (1956-1977)",
-                tag: "era-classic",
-                goals: 767,
-                titles: 37, 
-                ballon: "N/A (7 Honoríficos)",
-                description: "Atleta total. Dominó el mundo sobre lodazales y botines de cuero rígido. Su plasticidad en la chilena definió una era.",
-                skills: [95, 98, 94, 96, 92],
-                coefficient: 1.20,
-                adjustmentNote: "Entorno sumamente severo. Marcajes de extrema violencia.",
-                records: "Único ganador de 3 Copas del Mundo de la FIFA."
-            },
-            {
-                id: 3,
-                name: "Diego Maradona",
-                country: "Argentina",
-                era: "Transición (1976-1997)",
-                tag: "era-inter",
-                goals: 345,
-                titles: 12,
-                ballon: "N/A (1 Honorífico)",
-                description: "Símbolo del impacto individual. Liderazgo arrollador y una técnica depurada que floreció en los terrenos más duros de Italia.",
-                skills: [99, 85, 98, 92, 100],
-                coefficient: 1.15,
-                adjustmentNote: "Marcaje físico violento continuo. Reglamento laxo.",
-                records: "Gol del Siglo y Liderazgo histórico en el SSC Napoli."
-            },
-            {
-                id: 4,
-                name: "Cristiano Ronaldo",
-                country: "Portugal",
-                era: "Moderna (2002-Presente)",
-                tag: "era-modern",
-                goals: 973,
-                titles: 35,
-                ballon: 5,
-                description: "Exponente máximo de la optimización física. Potencia de salto y pegada quirúrgica con ambas piernas.",
-                skills: [94, 99, 88, 98, 92],
-                coefficient: 0.90,
-                adjustmentNote: "Uso de tecnología aerodinámica y nutrición deportiva avanzada.",
-                records: "Máximo goleador histórico de la Champions League (140)."
-            },
-            {
-                id: 5,
-                name: "Johan Cruyff",
-                country: "Países Bajos",
-                era: "Transición (1964-1984)",
-                tag: "era-inter",
-                goals: 402,
-                titles: 22,
-                ballon: 3,
-                description: "Cerebro del Fútbol Total. Inventó espacios donde no los había sobre campos de arena y tierra.",
-                skills: [96, 82, 100, 88, 95],
-                coefficient: 1.10,
-                adjustmentNote: "Era de transición tecnológica. Creador de sistemas tácticos.",
-                records: "3 Copas de Europa consecutivas con el Ajax."
-            },
-            {
-                id: 6,
-                name: "Alfredo Di Stéfano",
-                country: "Argentina/España",
-                era: "Clásica (1945-1966)",
-                tag: "era-classic",
-                goals: 514,
-                titles: 29,
-                ballon: 2,
-                description: "El futbolista total original. Recorría toda la cancha con botines de 500g y lideró la mayor dinastía europea.",
-                skills: [92, 95, 94, 93, 98],
-                coefficient: 1.25,
-                adjustmentNote: "Preclusión de ciencia deportiva. Resistencia colosal.",
-                records: "5 Copas de Europa consecutivas anotando en todas las finales."
-            },
-            {
-                id: 7,
-                name: "Franz Beckenbauer",
-                country: "Alemania",
-                era: "Transición (1964-1983)",
-                tag: "era-inter",
-                goals: 109,
-                titles: 20,
-                ballon: 2,
-                description: "Elegancia pura. Redefinió el juego defensivo creando la posición de líbero ofensivo.",
-                skills: [90, 85, 96, 84, 99],
-                coefficient: 1.10,
-                adjustmentNote: "Conducción de balón pesado sobre campos sin drenaje.",
-                records: "Campeón del Mundo como jugador y como entrenador."
-            },
-            {
-                id: 8,
-                name: "Ferenc Puskás",
-                country: "Hungría",
-                era: "Clásica (1943-1966)",
-                tag: "era-classic",
-                goals: 746,
-                titles: 15,
-                ballon: 0,
-                description: "El cañón húngaro. Promedio de gol asombroso golpeando balones toscos con precisión quirúrgica.",
-                skills: [91, 99, 90, 85, 88],
-                coefficient: 1.25,
-                adjustmentNote: "Golpeo de cuero con agujetas sin amortiguación.",
-                records: "84 goles en 85 partidos internacionales con Hungría."
-            },
-            {
-                id: 9,
-                name: "Ronaldo Nazário",
-                country: "Brasil",
-                era: "Moderna/Inter (1993-2011)",
-                tag: "era-modern",
-                goals: 414,
-                titles: 18,
-                ballon: 2,
-                description: "Potencia y habilidad fusionadas. El mejor '9' puro, capaz de eludir porteros a velocidad máxima.",
-                skills: [99, 94, 92, 97, 80],
-                coefficient: 1.00,
-                adjustmentNote: "Fase inicial de protección contra entradas por detrás.",
-                records: "Goleador del Mundial 2002 tras dos lesiones graves de rodilla."
-            },
-            {
-                id: 10,
-                name: "Garrincha",
-                country: "Brasil",
-                era: "Clásica (1953-1972)",
-                tag: "era-classic",
-                goals: 244,
-                titles: 12,
-                ballon: 0,
-                description: "La alegría del pueblo. Superó una asimetría física para humillar defensas en campos embarrados.",
-                skills: [100, 80, 85, 90, 85],
-                coefficient: 1.20,
-                adjustmentNote: "Superó discapacidad física en entornos de juego hostiles.",
-                records: "Balón y Bota de Oro en el Mundial 1962."
-            }
+            { name: "Pelé", goals: 762, games: 831, ratio: 0.91, color: "#f59e0b" },
+            { name: "Lionel Messi", goals: 916, games: 1194, ratio: 0.77, color: "#1e40af" },
+            { name: "Cristiano Ronaldo", goals: 973, games: 1337, ratio: 0.73, color: "#ef4444" },
+            { name: "Romário", goals: 772, games: 994, ratio: 0.78, color: "#10b981" },
+            { name: "Ferenc Puskás", goals: 746, games: 754, ratio: 0.99, color: "#6366f1" },
+            { name: "Gerd Müller", goals: 735, games: 793, ratio: 0.93, color: "#8b5cf6" },
+            { name: "Alfredo Di Stéfano", goals: 425, games: 558, ratio: 0.76, color: "#ec4899" }
         ];
 
-        function initCharts() {
-            new Chart(document.getElementById('shoeWeightChart'), {
-                type: 'line',
-                data: {
-                    labels: ['1950', '1970', '1990', '2010', '2024'],
-                    datasets: [{
-                        label: 'Peso promedio (gramos)',
-                        data: [500, 350, 280, 190, 180],
-                        borderColor: '#d4a373',
-                        backgroundColor: 'rgba(212, 163, 115, 0.1)',
-                        fill: true,
-                        tension: 0.4
-                    }]
+        const wrapLabels = (labels) => labels.map(label => {
+            if (label.length > 16) {
+                const words = label.split(' ');
+                const mid = Math.ceil(words.length / 2);
+                return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
+            }
+            return label;
+        });
+
+        // 1. Chart.js: Gráfico de Barras de Eficiencia
+        const ctx1 = document.getElementById('efficiencyChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: wrapLabels(players.map(p => p.name)),
+                datasets: [{
+                    label: 'Goles por Partido (Ratio)',
+                    data: players.map(p => p.ratio),
+                    backgroundColor: players.map(p => p.color),
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                return Array.isArray(label) ? label.join(' ') : label;
+                            }
+                        }
+                    }
                 },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    plugins: { legend: { display: false } },
-                    scales: { y: { beginAtZero: false, title: { display: true, text: 'Gramos' } } }
+                scales: {
+                    y: { 
+                        beginAtZero: true,
+                        grid: { color: '#f1f5f9' },
+                        title: { display: true, text: 'Promedio Goleador' }
+                    },
+                    x: { grid: { display: false } }
                 }
-            });
+            }
+        });
 
-            new Chart(document.getElementById('ballTechChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Cuero (Seco)', 'Cuero (Lluvia)', 'Sintético (1986)', 'Moderno (2024)'],
-                    datasets: [{
-                        label: 'Absorción de Agua (%)',
-                        data: [15, 100, 5, 0.1],
-                        backgroundColor: ['#e5e7eb', '#9ca3af', '#d4a373', '#166534']
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    plugins: { legend: { display: false } },
-                    scales: { y: { title: { display: true, text: '% de aumento de peso' } } }
-                }
-            });
-        }
-
-        function renderPlayerList() {
-            const list = document.getElementById('playerList');
-            players.forEach(p => {
-                const div = document.createElement('div');
-                div.className = "p-4 rounded-xl border border-gray-100 bg-white cursor-pointer hover:bg-amber-50 transition flex justify-between items-center group";
-                div.id = `player-card-${p.id}`;
-                div.onclick = () => selectPlayer(p.id);
-                div.innerHTML = `
-                    <div>
-                        <h4 class="font-bold text-amber-950 group-hover:text-amber-700">${p.id}. ${p.name}</h4>
-                        <p class="text-xs text-gray-500">${p.country}</p>
-                    </div>
-                    <span class="era-tag ${p.tag}">${p.era.split(' ')[0]}</span>
-                `;
-                list.appendChild(div);
-            });
-        }
-
-        let skillChart = null;
-
-        function selectPlayer(id) {
-            const p = players.find(x => x.id === id);
-            
-            document.querySelectorAll('#playerList div').forEach(el => el.classList.remove('card-active'));
-            document.getElementById(`player-card-${id}`).classList.add('card-active');
-
-            const detail = document.getElementById('playerDetail');
-            detail.innerHTML = `
-                <div class="animate-fadeIn">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <span class="text-amber-600 font-bold tracking-widest text-xs uppercase">Perfil de Leyenda</span>
-                            <h3 class="text-4xl text-amber-950">${p.name}</h3>
-                            <p class="text-gray-500">${p.country} | ${p.era}</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-3xl font-bold text-amber-900">${p.goals}</div>
-                            <div class="text-[10px] uppercase text-gray-400">Goles Oficiales</div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-4">
-                            <p class="text-sm italic text-gray-700 leading-relaxed">"${p.description}"</p>
-                            <div class="bg-amber-50 p-4 rounded-xl">
-                                <h5 class="text-xs font-bold text-amber-800 mb-2 uppercase">Hito Histórico</h5>
-                                <p class="text-xs text-amber-900">${p.records}</p>
-                            </div>
-                            <div class="pt-4 border-t border-gray-100">
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-xs font-bold">Ajuste Histórico</span>
-                                    <span class="text-xs font-bold text-amber-700">x${p.coefficient.toFixed(2)}</span>
-                                </div>
-                                <p class="text-[10px] text-gray-500">${p.adjustmentNote}</p>
-                            </div>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="skillRadarChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            if (skillChart) skillChart.destroy();
-            const ctx = document.getElementById('skillRadarChart').getContext('2d');
-            skillChart = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['Técnica', 'Potencia', 'Visión', 'Velocidad', 'Liderazgo'],
-                    datasets: [{
-                        label: p.name,
-                        data: p.skills,
-                        backgroundColor: 'rgba(212, 163, 115, 0.3)',
-                        borderColor: '#d4a373',
-                        pointBackgroundColor: '#amber-900'
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    scales: { r: { beginAtZero: true, max: 100, ticks: { display: false } } }
-                }
-            });
-        }
-
-        function renderRanking() {
-            const tbody = document.getElementById('rankingTableBody');
-            players.forEach(p => {
-                const row = document.createElement('tr');
-                row.className = "hover:bg-amber-50 transition";
-                row.innerHTML = `
-                    <td class="p-5 font-bold text-amber-900">${p.id}</td>
-                    <td class="p-5">
-                        <div class="font-bold">${p.name}</div>
-                        <div class="text-xs text-gray-500">${p.country}</div>
-                    </td>
-                    <td class="p-5 text-sm">${p.era.split(' ')[0]}</td>
-                    <td class="p-5">
-                        <span class="px-2 py-1 bg-amber-100 text-amber-800 rounded text-xs font-mono font-bold">${p.coefficient.toFixed(2)}</span>
-                    </td>
-                    <td class="p-5 text-xs text-gray-600 italic">
-                        ${p.id === 1 ? 'Suma de regularidad y técnica en era moderna.' : 
-                          p.id === 2 ? 'Dominio total bajo condiciones extremas.' : 
-                          p.id === 3 ? 'Impacto individual absoluto y rebeldía.' : 'Pilar fundamental de la historia.'}
-                    </td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        window.onload = () => {
-            initCharts();
-            renderPlayerList();
-            renderRanking();
-            selectPlayer(1);
+        // 2. Plotly.js: Gráfico de Dispersión de Longevidad
+        const trace = {
+            x: players.map(p => p.games),
+            y: players.map(p => p.goals),
+            mode: 'markers+text',
+            type: 'scatter',
+            name: 'Jugadores',
+            text: players.map(p => p.name),
+            textposition: 'top center',
+            marker: {
+                size: 14,
+                color: players.map(p => p.color),
+                line: { color: 'white', width: 2 }
+            }
         };
+
+        const layout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            font: { color: '#94a3b8' },
+            xaxis: { title: 'Total Partidos Oficiales', gridcolor: '#334155' },
+            yaxis: { title: 'Total Goles Oficiales', gridcolor: '#334155' },
+            margin: { t: 40, b: 40, l: 60, r: 40 }
+        };
+
+        const config = { responsive: true, displayModeBar: false };
+        Plotly.newPlot('longevityPlot', [trace], layout, config);
     </script>
 </body>
 </html>
